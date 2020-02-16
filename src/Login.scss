@@ -1,0 +1,12 @@
+.login-wrapper{
+    height: 100vh;
+    & .avocado-holder{
+        text-align: center;
+        padding-top: 13vh;
+        padding-bottom: 2vh;
+        & svg{
+            height: 27vh;
+            width: auto;
+        }
+    }
+}

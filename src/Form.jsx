@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css'
 import './Form.scss';
+import user from './Firebase';
 
 const Form = () => {
     const [equation, setEquation] = useState('');
@@ -59,7 +60,7 @@ const Form = () => {
             v2dom: var2Domain,
             fixed: fixed
         }
-        console.log(data);
+        user.add(data);
     }
 
     return (

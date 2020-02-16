@@ -2,7 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { MemoryRouter as Router } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
+import firebase from 'firebase/app';
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyA8zmIV78Prur4OFUNXklEgCrV3TkI38Q8",
@@ -13,8 +16,15 @@ const firebaseConfig = {
     messagingSenderId: "959568977585",
     appId: "1:959568977585:web:f409050a81fc1756018c90"
 };
+firebase.initializeApp(firebaseConfig);
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+<Router
+    initialEntries={['/', '/login', '/app']}
+    initialIndex={0} 
+>
+    <App />
+</Router>, document.getElementById('root'));
 
 
 
