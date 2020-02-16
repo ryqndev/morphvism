@@ -11,8 +11,8 @@ const Start = () => {
     }
     return (
         <Router initialEntries={['/start', '/form', '/view']} initialIndex={0}>
-			<Switch>
-				<Route exact path='/start'>
+            <Switch>
+                <Route exact path='/start'>
                     <div className="start-header">
                         <div className="greeting">Hello, {JSON.parse(localStorage.getItem('user')).name}</div>
                         <div className="logout" onClick={logout}>logout</div>
@@ -35,12 +35,16 @@ const Start = () => {
                         </div>
                     </div>
                 </Route>
-				<Route exact path='/form' component={Form} />
-				<Route path='/view'>
-                    <View />
+                <Route exact path='/form' component={Form} />
+                <Route path='/view'>
+                    <div className="view-container">
+                        <View />
+                        <View />
+                    </div>
+
                 </Route>
-			</Switch>
-		</Router>
+            </Switch>
+        </Router>
     );
 }
 
