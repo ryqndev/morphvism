@@ -1,0 +1,68 @@
+.form{
+    font-family: 'Nunito', sans-serif;
+    margin: 100px auto;
+    max-width: 800px;
+    & .free-vars{
+        box-shadow:  6px 6px 11px #080808, 
+        -6px -6px 11px #222222;
+        border-radius: 20px;
+        padding: 50px;
+        margin-top: 30px;
+        color: white;
+    }
+    & h3{
+        font-size: 3rem;
+        color: white;
+        margin: 10px 10px 30px 10px;
+    }
+    & .dropdown-wrapper{
+        display: grid;
+        grid-template-columns: 130px 1fr;
+        margin: 15px;
+        & .Dropdown-control{
+            background-color: black;
+            border: #020202;
+        }
+        & label{
+            color: grey;
+            font-size: 2rem;
+        }
+        & p{
+            color: grey;
+            font-size: 2rem;
+            margin-top: 6px;
+            text-align: left;
+            & input{
+                text-align: center;
+                color: white;
+                display: inline-block;
+                border: none;
+                border-bottom: 2px solid rgb(217, 0, 255);
+                background-color: transparent;
+                margin: 0px 10px 0px 10px;
+                width: 100px;
+                box-shadow: inset 6px 6px 11px #080808, 
+                            inset -6px -6px 11px #222222;
+            }
+        }
+        & span{
+            color: rgb(217, 0, 255);
+            margin: 5px;
+            text-align: right;
+            font-size: 3rem;
+        }
+    }
+    & input{
+        width: calc(100% - 70px);
+        margin: 30px;
+        font-size: 2rem;
+        border-radius: 4px;
+        padding: 10px;
+        background: #151515;
+        border: none;
+        color: white;
+        text-align: center;
+        box-shadow:  6px 6px 11px #080808, 
+                     -6px -6px 11px #222222,;
+    }
+}
