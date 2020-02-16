@@ -19,12 +19,13 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 ReactDOM.render(
-<Router
-    initialEntries={['/', '/login', '/app']}
-    initialIndex={0} 
->
-    <App />
-</Router>, document.getElementById('root'));
+    <Router
+        initialEntries={['/', '/login', '/app']}
+        initialIndex={0} 
+    >
+        <App />
+    </Router>, document.getElementById('root')
+);
 
 
 

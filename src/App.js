@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
-import { MemoryRouter as Router, Route, Switch, withRouter } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import user from './Firebase';
-import Form from './Form';
 import Login from './Login';
+import Start from './Start';
 import './App.css';
 
 function App({history}) {
@@ -20,7 +20,7 @@ function App({history}) {
 				<Login />
 			</Route>
 			<Route path='/app'>
-				<Form />
+				<Start />
 			</Route>
 		</Switch>
 	);

@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import Dropdown from 'react-dropdown'
+import {withRouter} from 'react-router-dom';
 import 'react-dropdown/style.css'
 import './Form.scss';
 import user from './Firebase';
 
-const Form = () => {
+const Form = ({ history }) => {
     const [equation, setEquation] = useState('');
     const [variables, setVariables] = useState(new Set());
     const [var1, setVar1] = useState("");
@@ -12,6 +13,7 @@ const Form = () => {
     const [var1Domain, setVar1Domain] = useState([-10, 10]);
     const [var2Domain, setVar2Domain] = useState([-10, 10]);
     const [fixed, setFixed] = useState(null);
+    const [created, setCreated] = useState(false);
 
     useEffect(() => {
         let totalVariables = new Set();
@@ -61,12 +63,14 @@ const Form = () => {
             fixed: fixed
         }
         user.add(data);
+        setCreated(true);
     }
 
     return (
         <div className="form">
-            <h3>EQUATIAONINSIONIN</h3>
-            <input type="text" value={equation} onChange={updateEquation} />
+            <h3>Create a visual</h3>
+            <p>Expression:</p>
+            <input type="text" value={equation} onChange={updateEquation} placeholder="Ex.) x + y + z"/>
             <div className="free-vars">
                 <h3>
                     Free Variables
@@ -109,6 +113,23 @@ const Form = () => {
             <button onClick={submitEquation}>
                 submit
             </button>
+            {
+                created && (
+                    <button onClick={() => {
+                        history.push('./view/' + JSON.parse(localStorage.getItem('user')).id);
+                    }}>
+                        join room
+                    </button>
+                )
+            }
+            <br />
+            {
+                created && (
+                    <div className="confirmed">
+                        Room Link: {JSON.parse(localStorage.getItem('user')).id}
+                    </div>
+                )
+            }
         </div>  
     );
 }
@@ -129,4 +150,4 @@ const DomainInput = ({domain, setDomain}) => {
         </p>
     );
 }
-export default Form;
+export default withRouter(Form);

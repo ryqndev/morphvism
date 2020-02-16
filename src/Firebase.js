@@ -35,6 +35,7 @@ const setUserData = (user) => {
     return userData;
 }
 const add = (data) => {
+    console.log(data);
     db.collection("users").doc(JSON.parse(localStorage.getItem('user')).id).set(data)
     .then(function() {
         console.log("Document successfully written!");
@@ -43,11 +44,18 @@ const add = (data) => {
         console.error("Error writing document: ", error);
     });
 }
+const logout = () => {
+    firebase.auth().signOut().then(function() {
+        localStorage.clear();
+        window.location.reload();
+    })      
+}
 
 export default {
     init: init,
     login: {
         check: checkIfLoggedIn
     },
-    add: add
+    add: add,
+    logout: logout
 }

@@ -1,0 +1,61 @@
+a{
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    height: 0 !important;
+}
+.start-header{
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 80px;
+    margin: 10px auto;
+    color: grey;
+    font-size: 1.3rem;
+    & .logout{
+        float: right;
+        color: rgb(255, 129, 129);
+        transition: color 350ms;
+        cursor: pointer;
+        &:hover{
+            color: rgb(255, 66, 66);
+        }
+    }
+}
+.start-wrapper{
+    font-family: 'Nunito';
+    color: white;
+    max-width: 1200px;
+    margin: 140px auto;
+    font-size: 3.5rem;
+    & span{
+        display: inline;
+        color: #ff00ff;
+    }
+    & .box-holder{
+        margin-top: 50px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 50px;
+        & .box{
+            cursor: pointer;
+            height: 0;
+            border-radius: 4px;
+            padding: 30% 20px 70% 20px;
+            background-color: #1B1B26;
+            transition: transform 350ms;
+            & p{
+                color: grey;
+                font-size: 2rem;
+                margin: 20px 0 0 0;
+            }
+            & h3{
+                font-size: 4.5rem;
+                margin: 0;
+            }
+            &:hover{
+                transform: scale(0.96);
+            }
+        }
+
+    }
+}

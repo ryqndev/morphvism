@@ -3,9 +3,8 @@
     margin: 100px auto;
     max-width: 800px;
     & .free-vars{
-        box-shadow:  6px 6px 11px #080808, 
-        -6px -6px 11px #222222;
-        border-radius: 20px;
+        background-color: #1B1B26;
+        box-shadow: 1px 1px 5px 1px #000000;
         padding: 50px;
         margin-top: 30px;
         color: white;
@@ -58,11 +57,34 @@
         font-size: 2rem;
         border-radius: 4px;
         padding: 10px;
-        background: #151515;
+        background: #2B2B37;
         border: none;
         color: white;
         text-align: center;
         box-shadow:  6px 6px 11px #080808, 
-                     -6px -6px 11px #222222,;
+                     -6px -6px 11px #222222;
+    }
+    & p{
+        margin-left: 30px;
+        margin-bottom: 0;
+        color: grey;
+        font-size: 1.3rem;
+    }
+    & button{
+        float: left;
+        display: block;
+        border: none;
+        margin-top: 30px;
+        margin-right: 30px;
+        font-size: 1.5rem;
+        color: white;
+        padding: 20px;
+        background-color: #1B1B26;
+        box-shadow: 1px 1px 5px 1px #000000;
+    }
+    & .confirmed{
+        font-size: 1.5rem;
+        color: white;
+        padding: 20px;
     }
 }
