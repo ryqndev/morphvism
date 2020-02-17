@@ -62,8 +62,15 @@ const Form = ({ history }) => {
             v2dom: var2Domain,
             fixed: fixed
         }
+        // console.log(data.eq);
         user.add(data);
-        setCreated(true);
+        fetch('https://hidden-eyrie-79468.herokuapp.com/tree_hacks?data=' + encodeURIComponent(JSON.stringify(data)))
+        .then(response => {
+            setCreated(true);
+        })
+        .catch(err => {
+            setCreated(true);
+        })
     }
 
     return (
@@ -116,7 +123,7 @@ const Form = ({ history }) => {
             {
                 created && (
                     <button onClick={() => {
-                        history.push('./view/' + JSON.parse(localStorage.getItem('user')).id);
+                        history.push('./view/' + encodeURI(JSON.parse(localStorage.getItem('user')).id));
                     }}>
                         join room
                     </button>

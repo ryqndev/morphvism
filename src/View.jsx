@@ -12,8 +12,7 @@ import {withRouter} from 'react-router-dom';
 const View = ({history}) => {
     const [url, setUrl] = useState("");
     const mount = useRef(null)
-    const [isAnimating, setAnimating] = useState(true)
-    const controls = useRef(null)
+    const [isAnimating, setAnimating] = useState(true);
     
     useEffect(() => {
         let width = mount.current.clientWidth;
@@ -25,7 +24,6 @@ const View = ({history}) => {
         const renderer = new THREE.WebGLRenderer({ antialias: true });
         const geometry = new THREE.BoxGeometry(1, 1, 1);
         const material = new THREE.MeshBasicMaterial({ color: 0xff00ff });
-        const cube = new THREE.Mesh(geometry, material);
         const controls = new OrbitControls(camera, renderer.domElement)
         camera.position.z = 4;
         renderer.setClearColor('#000000');
@@ -34,11 +32,11 @@ const View = ({history}) => {
         renderer.setSize(width, height);
         let objLoader = new OBJLoader();
         objLoader.load(
-            'https://hidden-eyrie-79468.herokuapp.com/output.obj',
+            'https://hidden-eyrie-79468.herokuapp.com/output2gi.obj',
             object => {
                 object.traverse( function ( child ) {
                     if( child instanceof THREE.Mesh ) {
-                        child.material.color.setHex(0x999999);
+                        child.material.color.setHex(0xffffff);
                     }
                 });
                 object.position.y = 0;
@@ -68,15 +66,12 @@ const View = ({history}) => {
         }
         
         const animate = () => {
-            cube.rotation.x += 0.01;
-            cube.rotation.y += 0.01;
             renderScene();
             frameId = window.requestAnimationFrame(animate)
         }
-    
         const start = () => {
             if (!frameId) {
-            frameId = requestAnimationFrame(animate)
+                frameId = requestAnimationFrame(animate)
             }
         }
     
@@ -95,8 +90,6 @@ const View = ({history}) => {
             stop();
             window.removeEventListener('resize', handleResize);
             mount.current.removeChild(renderer.domElement);
-    
-            scene.remove(cube);
             geometry.dispose();
             material.dispose();
         }
